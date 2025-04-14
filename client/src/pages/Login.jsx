@@ -3,10 +3,11 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import Textbox from '../components/Textbox';
 import Button from '../components/Button';
-
+import { useSelector } from "react-redux";
 
 const Login = () => {
-  const user = "";
+
+    const user = ""; //הוא הוסיף פה שורה אחרת בסרטון מספר 3 דקה 18 אבל זה שובר את הלוג אין פייג כי הוא לא מזהה את היוסר סלקטור
   const {
     register,
     handleSubmit,
@@ -18,7 +19,6 @@ const Login = () => {
   const submitHandler= async (data) =>{
     console.log("Submit")
   }
-  
   useEffect(()=> {
     user && useNavigate("/dashboard")
   } , [user]);
@@ -74,7 +74,7 @@ const Login = () => {
                       label= "Password:"
                       className="w-full rounded-full" 
                       register={register("password" , {
-                        required: "Email Address is required!",
+                        required: "Password Address is required!",
                     })} 
                     error={errors.password ? errors.password.message : ""} />
 
